@@ -1,35 +1,28 @@
-// Перед звільненням розробник зламав вихідний код управління акаунтами користувачів
-// нашого сервісу доставки їжі. Виконай рефакторинг методів об'єкта customer,
-// розставивши відсутні this під час звернення до властивостей об'єкта.
-// Використай цей стартовий код і виконай рефакторинг.
+// З використанням властивостей і методів DOM-елементів, напиши скрипт, який:
 
-const customer = {
-  username: "Mango",
-  balance: 24000,
-  discount: 0.1,
-  orders: ["Burger", "Pizza", "Salad"],
-  // Change code below this line
-  getBalance() {
-    return this.balance;
-  },
-  getDiscount() {
-    return this.discount;
-  },
-  setDiscount(value) {
-    this.discount = value;
-  },
-  getOrders() {
-    return this.orders;
-  },
-  addOrder(cost, order) {
-    this.balance -= cost - cost * this.discount;
-    this.orders.push(order);
-  },
-  // Change code above this line
-};
+// Порахує й виведе в консоль кількість категорій в ul#categories, тобто елементів li.item.
+// Для кожного елемента li.item у списку ul#categories знайде й виведе в консоль текст
+// заголовка елемента (тегу <h2>) і кількість елементів у категорії (усіх <li>, вкладених
+// у нього).
 
-customer.setDiscount(0.15);
-console.log(customer.getDiscount()); // 0.15
-customer.addOrder(5000, "Steak");
-console.log(customer.getBalance()); // 19750
-console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
+// На що буде звертати увагу ментор при перевірці:
+
+// Кількість категорій, їх назва та кількість елементів отримані за допомогою властивостей
+// і методів DOM-елементів
+// Дані за кожною категорією були отримані й виведені в консоль у тілі циклу
+// або методу forEach()
+const categoryItems = document.querySelectorAll(`.item`);
+console.log(`Number of categories:${categoryItems.length}`);
+categoryItems.forEach(item => {
+        // Отримуємо назву категорії (зазвичай це h2 всередині li.item)
+const categoryName = item.querySelector('h2').textContent;
+        
+        // Отримуємо кількість елементів у списку ul (або li) всередині поточної категорії
+const elementsCount = item.querySelectorAll('ul li').length;
+
+console.log(`Category: ${categoryName}`);
+console.log(`Elements: ${elementsCount}`);
+});
+
+
+
