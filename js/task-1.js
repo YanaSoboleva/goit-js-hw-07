@@ -11,17 +11,16 @@
 // і методів DOM-елементів
 // Дані за кожною категорією були отримані й виведені в консоль у тілі циклу
 // або методу forEach()
-const categoryItems = document.querySelectorAll(`.item`);
-console.log(`Number of categories:${categoryItems.length}`);
-categoryItems.forEach(item => {
-        // Отримуємо назву категорії (зазвичай це h2 всередині li.item)
-const categoryName = item.querySelector('h2').textContent;
-        
-        // Отримуємо кількість елементів у списку ul (або li) всередині поточної категорії
-const elementsCount = item.querySelectorAll('ul li').length;
 
-console.log(`Category: ${categoryName}`);
-console.log(`Elements: ${elementsCount}`);
+
+const numberOfCategoryEl = document.querySelectorAll(`.item`);
+console.log(`Number of categories: ${numberOfCategoryEl.length}`);
+numberOfCategoryEl.forEach(item => {
+const categoryNameEl = item.querySelector('h2').textContent;
+const sumCategoryEl = item.querySelectorAll('ul>li').length;
+
+console.log(`Category: ${categoryNameEl}`);
+console.log(`Elements: ${sumCategoryEl}`);
 });
 
 
