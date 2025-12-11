@@ -19,10 +19,11 @@ const userInputName = document.querySelector(`#name-input`);
 const userNameOutput = document.querySelector('#name-output');
 userInputName.addEventListener('input', nameInput);
 function nameInput(event) {
-    if (event.target.value.trim() === '') {
+    const trimedName = event.target.value.trim();
+    if (trimedName === '') {
         userNameOutput.textContent = 'Anonymous';
         return;
     }
-    userNameOutput.textContent = event.target.value;
+    userNameOutput.textContent = trimedName;
     // event.target.value = ``;
 }
